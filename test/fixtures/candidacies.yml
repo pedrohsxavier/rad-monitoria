@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  cre: 1.5
+  nota: 1.5
+  status: false
+  resultado: MyString
+  data: 2019-12-12 22:51:22
+  user: one
+  notice: one
+  subject: one
+
+two:
+  cre: 1.5
+  nota: 1.5
+  status: false
+  resultado: MyString
+  data: 2019-12-12 22:51:22
+  user: two
+  notice: two
+  subject: two

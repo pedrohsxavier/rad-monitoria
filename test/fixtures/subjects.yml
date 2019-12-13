@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  nome: MyString
+  periodo: 1
+  teacher: one
+
+two:
+  nome: MyString
+  periodo: 1
+  teacher: two

@@ -2,10 +2,12 @@
 
 one:
   nome: MyString
+  sigla: MyString
   periodo: 1
   teacher: one
 
 two:
   nome: MyString
+  sigla: MyString
   periodo: 1
   teacher: two

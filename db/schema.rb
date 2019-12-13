@@ -10,7 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_12_224033) do
+ActiveRecord::Schema.define(version: 2019_12_12_225122) do
+
+  create_table "candidacies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.float "cre", null: false
+    t.float "nota", null: false
+    t.boolean "status"
+    t.string "resultado"
+    t.datetime "data", null: false
+    t.bigint "user_id"
+    t.bigint "notice_id"
+    t.bigint "subject_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["notice_id"], name: "index_candidacies_on_notice_id"
+    t.index ["subject_id"], name: "index_candidacies_on_subject_id"
+    t.index ["user_id"], name: "index_candidacies_on_user_id"
+  end
+
+  create_table "notices", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "semestre"
+    t.boolean "encerrado", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nome"
+    t.integer "periodo"
+    t.bigint "teacher_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["teacher_id"], name: "index_subjects_on_teacher_id"
+  end
+
+  create_table "teachers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "nome"
+    t.string "email"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -27,4 +66,8 @@ ActiveRecord::Schema.define(version: 2019_12_12_224033) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "candidacies", "notices"
+  add_foreign_key "candidacies", "subjects"
+  add_foreign_key "candidacies", "users"
+  add_foreign_key "subjects", "teachers"
 end

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Cre:</strong>
+  <%= @candidacy.cre %>
+</p>
+
+<p>
+  <strong>Nota:</strong>
+  <%= @candidacy.nota %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @candidacy.status %>
+</p>
+
+<p>
+  <strong>Resultado:</strong>
+  <%= @candidacy.resultado %>
+</p>
+
+<p>
+  <strong>Data:</strong>
+  <%= @candidacy.data %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @candidacy.user.email %>
+</p>
+
+<p>
+  <strong>Notice:</strong>
+  <%= @candidacy.notice.semestre %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @candidacy.subject.nome %>
+</p>
+
+<%= link_to 'Edit', edit_candidacy_path(@candidacy) %> |
+<%= link_to 'Back', candidacies_path %>

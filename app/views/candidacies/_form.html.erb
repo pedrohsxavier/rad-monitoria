@@ -1,0 +1,42 @@
+<%= form_with(model: candidacy, local: true) do |form| %>
+  <% if candidacy.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(candidacy.errors.count, "error") %> prohibited this candidacy from being saved:</h2>
+
+      <ul>
+      <% candidacy.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :cre %>
+    <%= form.text_field :cre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nota %>
+    <%= form.text_field :nota %>
+  </div>
+
+  <div class="field">
+    <%= form.label :user_id %>
+    <%= collection_select(:candidacy, :user_id, @users, :id, :email) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :notice_id %>
+    <%= collection_select(:candidacy, :notice_id, @notices, :id, :semestre) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subject_id %>
+    <%= collection_select(:candidacy, :subject_id, @subjects, :id, :nome) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

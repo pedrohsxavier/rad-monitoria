@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2019_12_12_225122) do
 
   create_table "subjects", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nome"
+    t.string "sigla"
     t.integer "periodo"
     t.bigint "teacher_id"
     t.datetime "created_at", null: false

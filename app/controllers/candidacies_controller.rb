@@ -1,16 +1,10 @@
 class CandidaciesController < ApplicationController
   before_action :set_candidacy, only: [:show, :edit, :update, :destroy]
-  before_action :set_users, only: [:new, :edit]
-  before_action :set_notices, only: [:new, :edit]
-  before_action :set_subjects, only: [:new, :edit]
 
   # GET /candidacies
   # GET /candidacies.json
   def index
     @candidacies = Candidacy.all
-    @users = User.all
-    @notices = Notice.all
-    @subjects = Subject.all
   end
 
   # GET /candidacies/1
@@ -20,13 +14,17 @@ class CandidaciesController < ApplicationController
 
   # GET /candidacies/new
   def new
+    if(User.last.qtdCandidaturasUltimoEdital >= 2)
+      respond_to do |format|
+        format.html { redirect_to candidacies_path, notice: 'Você já tem duas candidaturas nesse edital!'}
+      end
+    end
     @candidacy = Candidacy.new
+    @subjects = Subject.all
   end
 
   # GET /candidacies/1/edit
   def edit
-    @users = User.all
-    @notices = Notice.all
     @subjects = Subject.all
   end
 
@@ -35,6 +33,9 @@ class CandidaciesController < ApplicationController
   def create
     @candidacy = Candidacy.new(candidacy_params)
     @candidacy.data = Time.now() - 3600 * 3
+    @candidacy.user = User.last
+    # acima, pegar o usuario logado!
+    @candidacy.notice = Notice.last
 
     respond_to do |format|
       if @candidacy.save
@@ -75,14 +76,6 @@ class CandidaciesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_candidacy
       @candidacy = Candidacy.find(params[:id])
-    end
-
-    def set_users
-      @users = User.all
-    end
-
-    def set_notices
-      @notices = Notice.all
     end
 
     def set_subjects

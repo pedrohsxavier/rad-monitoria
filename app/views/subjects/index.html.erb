@@ -2,7 +2,7 @@
 
 <h1>Subjects</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th>Nome</th>
@@ -20,7 +20,6 @@
         <td><%= subject.sigla %></td>
         <td><%= subject.periodo %></td>
         <td><%= subject.teacher.nome %></td>
-        <td><%= link_to 'Show', subject %></td>
         <td><%= link_to 'Edit', edit_subject_path(subject) %></td>
         <td><%= link_to 'Destroy', subject, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

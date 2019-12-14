@@ -22,16 +22,6 @@
   </div>
 
   <div class="field">
-    <%= form.label :user_id %>
-    <%= collection_select(:candidacy, :user_id, @users, :id, :email) %>
-  </div>
-
-  <div class="field">
-    <%= form.label :notice_id %>
-    <%= collection_select(:candidacy, :notice_id, @notices, :id, :semestre) %>
-  </div>
-
-  <div class="field">
     <%= form.label :subject_id %>
     <%= collection_select(:candidacy, :subject_id, @subjects, :id, :nome) %>
   </div>

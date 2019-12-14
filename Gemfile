@@ -3,6 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.4'
 
+# Bootstrap
+gem 'bootstrap'
+# Jquery
+gem 'jquery-rails'
 # Devise
 gem 'devise'
 # Cocoon

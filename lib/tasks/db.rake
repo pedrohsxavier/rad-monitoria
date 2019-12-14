@@ -22,12 +22,14 @@ namespace :db do
     ape = Subject.new
     ape.nome = "Algoritmo e Programação Estruturada"
     ape.sigla = "APE"
+    ape.periodo = 1
     ape.teacher = valeria
     ape.save
     ###
     lm = Subject.new
     lm.nome = "Linguagens de Marcação"
     lm.sigla = "LM"
+    lm.periodo = 1
     lm.teacher = luiz
     lm.save
 

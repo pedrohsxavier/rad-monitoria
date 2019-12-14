@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :subjects
+  resources :teachers
   resources :candidacies
   root to: 'pages#home'
   #get 'pages/home'

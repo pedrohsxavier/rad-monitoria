@@ -4,4 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   has_many :candidacies
+
+  def qtdCandidaturasUltimoEdital
+    @id_ultimo_edital = Notice.last.id
+    return Candidacy.where(
+      "notice_id = " + @id_ultimo_edital.to_s + " AND user_id = " + self.id.to_s
+    ).count
+  end
+
 end

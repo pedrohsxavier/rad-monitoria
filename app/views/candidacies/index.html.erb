@@ -27,11 +27,9 @@
         <td><%= candidacy.status %></td>
         <td><%= candidacy.resultado %></td>
         <td><%= candidacy.data %></td>
-        <td><%= candidacy.user.nome %></td>
+        <td><%= candidacy.user.email %></td>
         <td><%= candidacy.notice.semestre %></td>
         <td><%= candidacy.subject.nome %></td>
-        <td><%= link_to 'Show', candidacy %></td>
-        <td><%= link_to 'Edit', edit_candidacy_path(candidacy) %></td>
         <td><%= link_to 'Destroy', candidacy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

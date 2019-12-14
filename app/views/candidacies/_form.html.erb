@@ -13,20 +13,20 @@
 
   <div class="field">
     <%= form.label :cre %>
-    <%= form.text_field :cre %>
+    <%= form.number_field(:cre, class:'form-control') %>
   </div>
 
-  <div class="field">
+  <div class="field mt-5">
     <%= form.label :nota %>
-    <%= form.text_field :nota %>
+    <%= form.number_field(:nota, class:'form-control') %>
   </div>
 
-  <div class="field">
-    <%= form.label :subject_id %>
-    <%= collection_select(:candidacy, :subject_id, @subjects, :id, :nome) %>
+  <div class="field mt-5">
+    <%= form.label :Disciplina %>
+    <%= collection_select(:candidacy, :subject_id, @subjects, :id, :nome, {}, {:class=>'form-control'}) %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions mt-5 text-center">
+    <%= form.submit("Candidatar-se", class:'btn btn-primary') %>
   </div>
 <% end %>

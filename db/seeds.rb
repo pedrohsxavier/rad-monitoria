@@ -9,6 +9,19 @@
 # PRIMEIRO CRIAR 3 ALUNOS PELO FRONT-END
 # DEPOIS RODAR A TASK DEV_POPULATE
 
+# USER
+aluno_1 = User.find(1)
+aluno_1.nome = "Aluno 1 da Silva"
+aluno_1.save
+###
+aluno_2 = User.find(2)
+aluno_2.nome = "Aluno 2 Medeiros"
+aluno_2.save
+###
+aluno_3 = User.find(3)
+aluno_3.nome = "Aluno 3 Araujo"
+aluno_3.save
+
 # EDITAL
 edital = Notice.new
 edital.semestre = "2020.1"

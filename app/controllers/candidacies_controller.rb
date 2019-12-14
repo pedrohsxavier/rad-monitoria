@@ -8,6 +8,9 @@ class CandidaciesController < ApplicationController
   # GET /candidacies.json
   def index
     @candidacies = Candidacy.all
+    @users = User.all
+    @notices = Notice.all
+    @subjects = Subject.all
   end
 
   # GET /candidacies/1
@@ -17,9 +20,6 @@ class CandidaciesController < ApplicationController
 
   # GET /candidacies/new
   def new
-    @users = User.all
-    @notices = Notice.all
-    @subjects = Subject.all
     @candidacy = Candidacy.new
   end
 
@@ -34,8 +34,7 @@ class CandidaciesController < ApplicationController
   # POST /candidacies.json
   def create
     @candidacy = Candidacy.new(candidacy_params)
-    # Time.now está retornando um horario 3h a frente, por isso a subtração de 3h abaixo
-    @candidacy.data = Time.now - 3600 * 3
+    @candidacy.data = Time.now() - 3600 * 3
 
     respond_to do |format|
       if @candidacy.save
@@ -92,6 +91,6 @@ class CandidaciesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def candidacy_params
-      params.require(:candidacy).permit(:cre, :nota, :status, :resultado, :data, :user_id, :notice_id, :subject_id)
+      params.require(:candidacy).permit(:cre, :nota, :media, :status, :resultado, :data, :user_id, :notice_id, :subject_id)
     end
 end

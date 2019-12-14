@@ -3,9 +3,10 @@
 one:
   cre: 1.5
   nota: 1.5
+  media: 1.5
   status: false
   resultado: MyString
-  data: 2019-12-12 22:51:22
+  data: 2019-12-14 18:05:06
   user: one
   notice: one
   subject: one
@@ -13,9 +14,10 @@ one:
 two:
   cre: 1.5
   nota: 1.5
+  media: 1.5
   status: false
   resultado: MyString
-  data: 2019-12-12 22:51:22
+  data: 2019-12-14 18:05:06
   user: two
   notice: two
   subject: two

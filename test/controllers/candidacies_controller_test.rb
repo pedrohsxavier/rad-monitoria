@@ -17,7 +17,7 @@ class CandidaciesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create candidacy" do
     assert_difference('Candidacy.count') do
-      post candidacies_url, params: { candidacy: { cre: @candidacy.cre, data: @candidacy.data, nota: @candidacy.nota, notice_id: @candidacy.notice_id, resultado: @candidacy.resultado, status: @candidacy.status, subject_id: @candidacy.subject_id, user_id: @candidacy.user_id } }
+      post candidacies_url, params: { candidacy: { cre: @candidacy.cre, data: @candidacy.data, media: @candidacy.media, nota: @candidacy.nota, notice_id: @candidacy.notice_id, resultado: @candidacy.resultado, status: @candidacy.status, subject_id: @candidacy.subject_id, user_id: @candidacy.user_id } }
     end
 
     assert_redirected_to candidacy_url(Candidacy.last)
@@ -34,7 +34,7 @@ class CandidaciesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update candidacy" do
-    patch candidacy_url(@candidacy), params: { candidacy: { cre: @candidacy.cre, data: @candidacy.data, nota: @candidacy.nota, notice_id: @candidacy.notice_id, resultado: @candidacy.resultado, status: @candidacy.status, subject_id: @candidacy.subject_id, user_id: @candidacy.user_id } }
+    patch candidacy_url(@candidacy), params: { candidacy: { cre: @candidacy.cre, data: @candidacy.data, media: @candidacy.media, nota: @candidacy.nota, notice_id: @candidacy.notice_id, resultado: @candidacy.resultado, status: @candidacy.status, subject_id: @candidacy.subject_id, user_id: @candidacy.user_id } }
     assert_redirected_to candidacy_url(@candidacy)
   end
 

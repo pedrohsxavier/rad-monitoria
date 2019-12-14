@@ -16,6 +16,7 @@ class CandidaciesTest < ApplicationSystemTestCase
 
     fill_in "Cre", with: @candidacy.cre
     fill_in "Data", with: @candidacy.data
+    fill_in "Media", with: @candidacy.media
     fill_in "Nota", with: @candidacy.nota
     fill_in "Notice", with: @candidacy.notice_id
     fill_in "Resultado", with: @candidacy.resultado
@@ -34,6 +35,7 @@ class CandidaciesTest < ApplicationSystemTestCase
 
     fill_in "Cre", with: @candidacy.cre
     fill_in "Data", with: @candidacy.data
+    fill_in "Media", with: @candidacy.media
     fill_in "Nota", with: @candidacy.nota
     fill_in "Notice", with: @candidacy.notice_id
     fill_in "Resultado", with: @candidacy.resultado

@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_12_225122) do
+ActiveRecord::Schema.define(version: 2019_12_14_180506) do
 
   create_table "candidacies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.float "cre", null: false
-    t.float "nota", null: false
+    t.float "cre"
+    t.float "nota"
+    t.float "media"
     t.boolean "status"
     t.string "resultado"
-    t.datetime "data", null: false
+    t.datetime "data"
     t.bigint "user_id"
     t.bigint "notice_id"
     t.bigint "subject_id"

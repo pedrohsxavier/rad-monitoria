@@ -5,32 +5,24 @@
 <table class="table">
   <thead>
     <tr>
-      <th>Cre</th>
+      <th>Aluno</th>
       <th>Nota</th>
-      <th>Media</th>
-      <th>Status</th>
-      <th>Resultado</th>
-      <th>Data</th>
-      <th>User</th>
-      <th>Notice</th>
+      <th>Cre</th>
       <th>Subject</th>
-      <th colspan="3"></th>
+      <th>Status</th>
     </tr>
   </thead>
 
   <tbody>
     <% @candidacies.each do |candidacy| %>
       <tr>
-        <td><%= candidacy.cre %></td>
-        <td><%= candidacy.nota %></td>
-        <td><%= candidacy.media %></td>
-        <td><%= candidacy.status %></td>
-        <td><%= candidacy.resultado %></td>
-        <td><%= candidacy.data %></td>
         <td><%= candidacy.user.email %></td>
-        <td><%= candidacy.notice.semestre %></td>
+        <td><%= candidacy.nota %></td>
+        <td><%= candidacy.cre %></td>
         <td><%= candidacy.subject.nome %></td>
-        <td><%= link_to 'Destroy', candidacy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= candidacy.status %></td>
+        <!-- AQUI SERÁ ONDE O COORDENADOR VAI MARCAR OS STATUS COMO APROVADO OU NAO -->
+        <!-- <td><%= link_to 'Destroy', candidacy, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>
     <% end %>
   </tbody>

@@ -59,7 +59,7 @@ class CandidaciesController < ApplicationController
   def update
     respond_to do |format|
       if @candidacy.update(candidacy_params)
-        format.html { redirect_to @candidacy, notice: 'Candidacy was successfully updated.' }
+        format.html { redirect_to candidacies_path, notice: 'Candidatura aprovada!' }
         format.json { render :show, status: :ok, location: @candidacy }
       else
         format.html { render :edit }

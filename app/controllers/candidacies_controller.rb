@@ -4,7 +4,13 @@ class CandidaciesController < ApplicationController
   # GET /candidacies
   # GET /candidacies.json
   def index
-    @candidacies = Candidacy.all
+    @candidacies = Candidacy.where(notice_id = Notice.last.id.to_s)
+  end
+
+  # GET /results
+  def results
+    @subjects = Subject.all
+    @candidacies = Candidacy.where(notice_id = Notice.last.id.to_s)
   end
 
   # GET /candidacies/1

@@ -2,6 +2,7 @@
   <span class="navbar-brand" href="#">Monitoria</span>
   <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
     <div class="navbar-nav">
+      <%= link_to 'Candidatar-se', new_candidacy_path, class:'nav-item nav-link' %>
       <%= link_to 'Resultados', results_path, class:'nav-item nav-link' %>
       <%= link_to 'Candidaturas', candidacies_path, class:'nav-item nav-link' %>
       <% if current_user %>

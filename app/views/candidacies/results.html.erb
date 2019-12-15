@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h3>Resultados</h3>
+
+<div class="container">
+  <% @subjects.each do |subject| %>
+    <h4><%= subject.nome %></h4>
+    <table class="table table-striped mb-5">
+    <thead>
+      <tr>
+        <th>Aluno</th>
+        <th>Nota</th>
+        <th>CRE</th>
+        <th>Media</th>
+        <th>Resultado</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @candidacies.each do |candidacy| %>
+        <% if subject.id = candidacy.subject.id %>
+        <!-- ESSE IF NAO TA PEGANDO NAO FACO A MINIMA IDEIA DO PQ -->
+          <% if candidacy.resultado %>
+            <tr class="bg-success">
+          <% else %>
+            <tr>
+          <% end %>
+          <td><%= candidacy.user.email %></td>
+          <td><%= candidacy.nota %></td>
+          <td><%= candidacy.cre %></td>
+          <td><%= candidacy.media %></td>
+          <% if candidacy.resultado %>
+            <td class="bg-success"><%= candidacy.resultado %></td>
+          <% else %>
+            <td>Reprovado</td>
+          <% end %>
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+  <% end %>
+</div>

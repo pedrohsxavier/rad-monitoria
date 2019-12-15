@@ -1,28 +1,27 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Teachers</h1>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Nome</th>
-      <th>Email</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @teachers.each do |teacher| %>
+<div class="container mt-5">
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= teacher.nome %></td>
-        <td><%= teacher.email %></td>
-        <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
-        <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Nome</th>
+        <th>Email</th>
+        <th></th>
+        <th></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      <% @teachers.each do |teacher| %>
+        <tr>
+          <td><%= teacher.nome %></td>
+          <td><%= teacher.email %></td>
+          <td><%= link_to 'Editar', edit_teacher_path(teacher) %></td>
+          <td><%= link_to 'Apagar', teacher, method: :delete, data: { confirm: 'Tem certeza?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
 <br>
 
-<%= link_to 'New Teacher', new_teacher_path %>
+<%= link_to 'Adicionar Professor', new_teacher_path %>

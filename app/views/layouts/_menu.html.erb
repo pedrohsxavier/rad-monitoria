@@ -1,0 +1,22 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <span class="navbar-brand" href="#">Monitoria</span>
+  <div class="collapse navbar-collapse justify-content-between" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <%= link_to 'Resultados', results_path, class:'nav-item nav-link' %>
+      <%= link_to 'Candidaturas', candidacies_path, class:'nav-item nav-link' %>
+      <% if current_user %>
+        <% if current_user.isAdmin %>
+          <%= link_to 'Professores', teachers_path, class:'nav-item nav-link' %>
+          <%= link_to 'Disciplinas', subjects_path, class:'nav-item nav-link' %>
+        <% end %>
+      <% end %>  
+    </div>
+    <div class="navbar-nav">
+      <% if current_user %>
+        <%= link_to 'Logout', destroy_user_session_path, method: :delete, class:'nav-item nav-link align-self-end' %>
+      <% else %>
+        <%= link_to 'Login', new_user_session_path, class:'nav-item nav-link align-self-end' %>
+      <% end %>
+      </div>
+  </div>
+</nav>

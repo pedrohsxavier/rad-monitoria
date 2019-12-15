@@ -26,7 +26,18 @@
     <%= collection_select(:candidacy, :subject_id, @subjects, :id, :nome, {}, {:class=>'form-control'}) %>
   </div>
 
+  <% if current_user.isAdmin %>
+    <div class="field mt-5">
+      <%= form.check_box :status %>
+      <%= form.label :Aprovar %>
+    </div>
+  <% end %>
+
   <div class="actions mt-5 text-center">
-    <%= form.submit("Candidatar-se", class:'btn btn-primary') %>
+    <% if current_user.isAdmin %>
+      <%= form.submit("Atualizar", class:'btn btn-primary') %>
+    <% else %>
+      <%= form.submit("Candidatar-se", class:'btn btn-primary') %>
+    <% end %>
   </div>
 <% end %>

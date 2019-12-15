@@ -1,15 +1,14 @@
-<p id="notice"><%= notice %></p>
+<h3>Candidaturas</h3>
 
-<h1>Candidacies</h1>
-
-<table class="table">
+<table class="table table-striped container">
   <thead>
     <tr>
       <th>Aluno</th>
       <th>Nota</th>
-      <th>Cre</th>
-      <th>Subject</th>
+      <th>CRE</th>
+      <th>Disciplina</th>
       <th>Status</th>
+      <th></th>
     </tr>
   </thead>
 
@@ -20,7 +19,20 @@
         <td><%= candidacy.nota %></td>
         <td><%= candidacy.cre %></td>
         <td><%= candidacy.subject.nome %></td>
-        <td><%= candidacy.status %></td>
+        <% if candidacy.status %>
+          <td>Candidatura <strong>APROVADA</strong><br>pelo Coordenador</td>
+        <% else %>
+          <td>Candidatura <strong>AINDA NÃO</strong><br>aprovada pelo Coordenador</td>
+        <% end %>
+        <% if current_user %>
+          <% if current_user.isAdmin %>
+            <td><%= link_to 'Editar', edit_candidacy_path(candidacy) %></td>
+          <% else %>
+            <td></td>
+          <% end %>
+          <% else %>
+            <td></td>
+        <% end %>
         <!-- AQUI SERÁ ONDE O COORDENADOR VAI MARCAR OS STATUS COMO APROVADO OU NAO -->
         <!-- <td><%= link_to 'Destroy', candidacy, method: :delete, data: { confirm: 'Are you sure?' } %></td> -->
       </tr>

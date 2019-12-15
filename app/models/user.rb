@@ -12,4 +12,8 @@ class User < ApplicationRecord
     ).count
   end
 
+  def isAdmin
+    return self.admin
+  end
+
 end

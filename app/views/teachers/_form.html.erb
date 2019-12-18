@@ -11,17 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field mt-5">
     <%= form.label :nome %>
-    <%= form.text_field :nome %>
+    <%= form.text_field(:nome, class:'form-control') %>
   </div>
 
-  <div class="field">
+  <div class="field mt-5">
     <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%= form.text_field(:email, class:'form-control') %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions mt-5 text-center">
+    <%= form.submit("Criar", class:'btn btn-primary') %>
   </div>
 <% end %>

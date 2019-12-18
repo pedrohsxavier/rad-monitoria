@@ -11,27 +11,27 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="field mt-5">
     <%= form.label :nome %>
-    <%= form.text_field :nome %>
+    <%= form.text_field(:nome, class:'form-control') %>
   </div>
 
-  <div class="field">
+  <div class="field mt-5">
     <%= form.label :sigla %>
-    <%= form.text_field :sigla %>
+    <%= form.text_field(:sigla, class:'form-control') %>
   </div>
 
-  <div class="field">
+  <div class="field mt-5">
     <%= form.label :periodo %>
-    <%= form.number_field :periodo %>
+    <%= form.number_field(:periodo, class:'form-control') %>
   </div>
 
-  <div class="field">
-    <%= form.label :teacher_id %>
+  <div class="field mt-5">
+    <%= form.label :Professor %>
     <%= collection_select(:subject, :teacher_id, @teachers, :id, :nome, {}, {:class=>'form-control'}) %>
   </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="actions mt-5 text-center">
+    <%= form.submit("Criar", class:'btn btn-primary') %>
   </div>
 <% end %>

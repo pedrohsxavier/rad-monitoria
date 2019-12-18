@@ -36,12 +36,7 @@
   <% end %>
 
   <div class="actions mt-5 text-center">
-  <% if current_user %>
-    <% if current_user.isAdmin %>
-      <%= form.submit("Atualizar", class:'btn btn-primary') %>
-    <% else %>
-      <%= form.submit("Candidatar-se", class:'btn btn-primary') %>
-    <% end %>
-  <% end %>
+    <%= form.submit("Candidatar-se", class:'btn btn-primary') %>
   </div>
+
 <% end %>

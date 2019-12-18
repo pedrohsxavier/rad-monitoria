@@ -20,11 +20,18 @@ class CandidaciesController < ApplicationController
 
   # GET /candidacies/new
   def new
-    if(User.last.qtdCandidaturasUltimoEdital >= 2)
+    unless (current_user)
       respond_to do |format|
-        format.html { redirect_to candidacies_path, notice: 'Você já tem duas candidaturas nesse edital!'}
+        format.html { redirect_to new_user_session_path, notice: 'Você precisa estar logado para candidatar-se!' and return}
       end
     end
+
+    if (current_user.qtdCandidaturasUltimoEdital() >= 2)
+      respond_to do |format|
+        format.html { redirect_to candidacies_path, notice: 'Você já tem duas candidaturas nesse edital!' and return}
+      end
+    end
+    
     @candidacy = Candidacy.new
     @subjects = Subject.all
   end
@@ -37,6 +44,15 @@ class CandidaciesController < ApplicationController
   # POST /candidacies
   # POST /candidacies.json
   def create
+
+    if (current_user)
+      if (current_user.isAdmin())
+        respond_to do |format|
+          format.html { redirect_to candidacies_path, notice: 'O Coordenador não pode se candidatar para monitoria!' and return}
+        end
+      end
+    end
+
     @candidacy = Candidacy.new(candidacy_params)
     @candidacy.data = Time.now() - 3600 * 3
     @candidacy.user = User.last

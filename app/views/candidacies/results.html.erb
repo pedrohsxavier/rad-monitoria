@@ -13,25 +13,22 @@
     </thead>
 
     <tbody>
-      <% @candidacies.each do |candidacy| %>
-        <% if subject.id = candidacy.subject.id %>
-        <!-- ESSE IF NAO TA PEGANDO NAO FACO A MINIMA IDEIA DO PQ -->
-          <% if candidacy.resultado %>
-            <tr class="bg-success">
-          <% else %>
-            <tr>
-          <% end %>
-          <td><%= candidacy.user.email %></td>
-          <td><%= candidacy.nota %></td>
-          <td><%= candidacy.cre %></td>
-          <td><%= candidacy.media %></td>
-          <% if candidacy.resultado %>
-            <td><%= candidacy.resultado %></td>
-          <% else %>
-            <td>Reprovado</td>
-          <% end %>
-          </tr>
+      <% subject.candidacies.each do |candidacy| %>
+        <% if candidacy.resultado %>
+          <tr class="bg-success">
+        <% else %>
+          <tr>
         <% end %>
+        <td><%= candidacy.user.email %></td>
+        <td><%= candidacy.nota %></td>
+        <td><%= candidacy.cre %></td>
+        <td><%= candidacy.media %></td>
+        <% if candidacy.resultado %>
+          <td><%= candidacy.resultado %></td>
+        <% else %>
+          <td>Reprovado</td>
+        <% end %>
+        </tr>
       <% end %>
     </tbody>
   </table>

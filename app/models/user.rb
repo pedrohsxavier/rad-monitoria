@@ -5,6 +5,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :candidacies
 
+  validates :nome, :matricula, presence: true
+
   def qtdCandidaturasUltimoEdital
     @id_ultimo_edital = Notice.last.id
     return Candidacy.where(

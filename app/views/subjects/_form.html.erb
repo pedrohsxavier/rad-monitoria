@@ -28,7 +28,7 @@
 
   <div class="field">
     <%= form.label :teacher_id %>
-    <%= form.text_field :teacher_id %>
+    <%= collection_select(:subject, :teacher_id, @teachers, :id, :nome, {}, {:class=>'form-control'}) %>
   </div>
 
   <div class="actions">

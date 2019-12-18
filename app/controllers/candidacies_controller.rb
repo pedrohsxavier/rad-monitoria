@@ -20,17 +20,20 @@ class CandidaciesController < ApplicationController
 
   # GET /candidacies/new
   def new
-    if (!current_user)
+    unless (current_user)
       respond_to do |format|
         format.html { redirect_to new_user_session_path, notice: 'Você precisa estar logado para candidatar-se!'}
       end
     end
 
-    if (current_user.qtdCandidaturasUltimoEdital() >= 2)
-      respond_to do |format|
-        format.html { redirect_to candidacies_path, notice: 'Você já tem duas candidaturas nesse edital!'}
+    if (current_user)
+      if (current_user.qtdCandidaturasUltimoEdital() >= 2)
+        respond_to do |format|
+          format.html { redirect_to candidacies_path, notice: 'Você já tem duas candidaturas nesse edital!'}
+        end
       end
     end
+    
     @candidacy = Candidacy.new
     @subjects = Subject.all
   end

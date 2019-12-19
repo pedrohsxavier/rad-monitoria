@@ -118,6 +118,17 @@ class CandidaciesController < ApplicationController
     
     # Close Notice 
     def closeNotice
-      notice.encerrado = true
+      if (current_user)
+        if (current_user.isAdmin)
+          notice.encerrado = true
+        end
+      end
+    end
+
+    # Find the better
+    def set_first
+      @candidacies = Candidacy.all
+      
+      # TODO: encontrar aluno com melhor nota dentro das candidaturas da disciplina 
     end
 end

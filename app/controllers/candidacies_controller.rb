@@ -1,5 +1,6 @@
 class CandidaciesController < ApplicationController
   before_action :set_candidacy, only: [:show, :edit, :update, :destroy]
+  before_action :set_subjects, only: [:new]
 
   # GET /candidacies
   # GET /candidacies.json

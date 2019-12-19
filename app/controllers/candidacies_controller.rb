@@ -31,6 +31,12 @@ class CandidaciesController < ApplicationController
         format.html { redirect_to candidacies_path, notice: 'Você já tem duas candidaturas nesse edital!' and return}
       end
     end
+
+    if (candidacy.notice.encerrado)
+      respond_to do |format|
+        format.html { redirect_to candidacies_path, notice: 'Candidaturas encerradas! Aguarde para conferir o resultado final.' and return}
+      end
+    end
     
     @candidacy = Candidacy.new
     @subjects = Subject.all
@@ -48,7 +54,7 @@ class CandidaciesController < ApplicationController
     if (current_user)
       if (current_user.isAdmin())
         respond_to do |format|
-          format.html { redirect_to candidacies_path, notice: 'O Coordenador não pode se candidatar para monitoria!' and return}
+          format.html { redirect_to candidacies_path, notice: 'Não é possível coordenador se candidatar para monitoria!' and return}
         end
       end
     end
@@ -107,5 +113,22 @@ class CandidaciesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def candidacy_params
       params.require(:candidacy).permit(:cre, :nota, :media, :status, :resultado, :data, :user_id, :notice_id, :subject_id)
+    end
+    
+    
+    # Close Notice 
+    def closeNotice
+      if (current_user)
+        if (current_user.isAdmin)
+          notice.encerrado = true
+        end
+      end
+    end
+
+    # Find the better
+    def set_first
+      @candidacies = Candidacy.all
+      
+      # TODO: encontrar aluno com melhor nota dentro das candidaturas da disciplina 
     end
 end

@@ -1,9 +1,8 @@
 <table class="table table-striped container mt-5">
   <thead>
     <tr>
+      <th>Matrícula</th>
       <th>Aluno</th>
-      <th>Nota</th>
-      <th>CRE</th>
       <th>Disciplina</th>
       <th>Status</th>
       <th></th>
@@ -13,9 +12,8 @@
   <tbody>
     <% @candidacies.each do |candidacy| %>
       <tr>
-        <td><%= candidacy.user.email %></td>
-        <td><%= candidacy.nota %></td>
-        <td><%= candidacy.cre %></td>
+        <th><%= candidacy.user.matricula %></td>
+        <td><%= candidacy.user.nome %></td>
         <td><%= candidacy.subject.nome %></td>
         <% if candidacy.status %>
           <td>Candidatura <strong>APROVADA</strong><br>pelo Coordenador</td>

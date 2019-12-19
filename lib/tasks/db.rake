@@ -101,7 +101,7 @@ namespace :db do
     candidatura_3.data = Time.now - 3600 * 3
     candidatura_3.user = User.find(3)
     candidatura_3.notice = edital
-    candidatura_3.subject = lm
+    candidatura_3.subject = bi
     candidatura_3.resultado = 'Classificado'
     candidatura_3.save
   end

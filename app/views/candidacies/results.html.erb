@@ -4,10 +4,11 @@
     <table class="table table-striped mb-5">
     <thead>
       <tr>
+        <th>Matrícula</th>
         <th>Aluno</th>
         <th>Nota</th>
         <th>CRE</th>
-        <th>Media</th>
+        <th>Média</th>
         <th>Resultado</th>
       </tr>
     </thead>
@@ -19,7 +20,8 @@
         <% else %>
           <tr>
         <% end %>
-        <td><%= candidacy.user.email %></td>
+        <td><%= candidacy.user.matricula %></td>
+        <td><%= candidacy.user.nome %></td>
         <td><%= candidacy.nota %></td>
         <td><%= candidacy.cre %></td>
         <td><%= candidacy.calcMedia %></td>

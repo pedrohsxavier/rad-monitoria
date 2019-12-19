@@ -6,15 +6,15 @@ namespace :db do
 
     # USER
     aluno_1 = User.find(1)
-    aluno_1.nome = "Aluno 1 da Silva"
+    aluno_1.nome = "Paulo Ferreira"
     aluno_1.save
     ###
     aluno_2 = User.find(2)
-    aluno_2.nome = "Aluno 2 Medeiros"
+    aluno_2.nome = "William Abdon"
     aluno_2.save
     ###
     aluno_3 = User.find(3)
-    aluno_3.nome = "Aluno 3 Araujo"
+    aluno_3.nome = "Tales Araújo"
     aluno_3.save
 
     # EDITAL
@@ -43,7 +43,11 @@ namespace :db do
     paulo_costa.nome = "Paulo Costa"
     paulo_costa.email = "paulo@email.com"
     paulo_costa.save
-
+    ###
+    thiago = Teacher.new
+    thiago.nome = "Thiago Moura"
+    thiago.email = "thiago@email.com"
+    thiago.save
 
     # DISCIPLINA
     ape = Subject.new
@@ -73,12 +77,18 @@ namespace :db do
     bi.periodo = 6
     bi.teacher = paulo_costa
     bi.save
-
+    ###
+    ml = Subject.new
+    ml.nome = "Tópicos Especiais"
+    ml.sigla = "ML"
+    ml.periodo = 6
+    ml.teacher = thiago
+    thiago.save
 
     # CANDIDATURA
     candidatura_1 = Candidacy.new
-    candidatura_1.cre = 80.0
-    candidatura_1.nota = 75
+    candidatura_1.cre = 85.0
+    candidatura_1.nota = 95
     candidatura_1.data = Time.now - 3600 * 3
     candidatura_1.user = User.find(1)
     candidatura_1.notice = edital
@@ -87,7 +97,7 @@ namespace :db do
     candidatura_1.save
     ###
     candidatura_2 = Candidacy.new
-    candidatura_2.cre = 70.0
+    candidatura_2.cre = 90.0
     candidatura_2.nota = 85
     candidatura_2.data = Time.now - 3600 * 3
     candidatura_2.user = User.find(2)
@@ -97,7 +107,7 @@ namespace :db do
     ###
     candidatura_3 = Candidacy.new
     candidatura_3.cre = 91.0
-    candidatura_3.nota = 70
+    candidatura_3.nota = 90
     candidatura_3.data = Time.now - 3600 * 3
     candidatura_3.user = User.find(3)
     candidatura_3.notice = edital

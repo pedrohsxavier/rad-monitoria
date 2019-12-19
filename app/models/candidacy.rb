@@ -10,7 +10,7 @@ class Candidacy < ApplicationRecord
   end
 
   def resultAluno
-    self.resultado = 
+    # self.resultado = 
   end
 
 end

@@ -5,6 +5,7 @@ class CandidaciesController < ApplicationController
   # GET /candidacies.json
   def index
     @candidacies = Candidacy.where(notice_id = Notice.last.id.to_s)
+    @notice = Notice.last
   end
 
   # GET /results
@@ -74,8 +75,26 @@ class CandidaciesController < ApplicationController
           notice = Notice.last
           notice.resultados_liberados = true
           notice.save
+          candidaturas = Candidacy.where(notice: notice, status: 'APROVADO')
+          for c in candidaturas do
+            c.calcMedia
+          end
+          for s in Subject.all do
+            #vencedor = Candidacy.find_by_sql("SELECT MAX(media) FROM candidacies WHERE notice_id = " + notice.id.to_s + " AND subject_id = " + s.id.to_s)
+            
+            if (s.candidacies.length != 0)
+              vencedor = Candidacy.where(subject: s, notice: notice).order('media desc').first
+              if (vencedor)
+                vencedor.resultado = 'Classificado'
+                vencedor.save
+              end
+            end
+          end
         end
       end
+    end
+    respond_to do |format|
+      format.html { redirect_to results_path, notice: 'Resultados gerados com sucesso!' and return}
     end
   end
 
@@ -93,8 +112,7 @@ class CandidaciesController < ApplicationController
 
     @candidacy = Candidacy.new(candidacy_params)
     @candidacy.data = Time.now() - 3600 * 3
-    @candidacy.user = User.last
-    # acima, pegar o usuario logado!
+    @candidacy.user = current_user
     @candidacy.notice = Notice.last
 
     respond_to do |format|
@@ -147,12 +165,8 @@ class CandidaciesController < ApplicationController
       params.require(:candidacy).permit(:cre, :nota, :media, :status, :resultado, :data, :user_id, :notice_id, :subject_id)
     end
     
-    
-
-    # Find the better
-    def set_first
-      @candidacies = Candidacy.all
-      
-      # TODO: encontrar aluno com melhor nota dentro das candidaturas da disciplina 
+    # Set Last Notice on notice
+    def set_notice
+      @notice = Notice.last
     end
 end

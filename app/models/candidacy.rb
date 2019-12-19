@@ -8,10 +8,7 @@ class Candidacy < ApplicationRecord
   # TODO: Move to controller
   def calcMedia
     self.media = ((self.cre * 3) + (self.nota * 7)) / 10
-  end
-
-  def resultAluno
-    
+    self.save
   end
 
 end

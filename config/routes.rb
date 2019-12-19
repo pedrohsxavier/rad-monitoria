@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   #get 'pages/home'
   devise_for :users
   match 'results' => 'candidacies#results', via: 'get'
-  match 'close_notice' => 'candidacies#closeNotice', via: 'get'
-  match 'show_results' => 'candidacies#showResults', via: 'get'
+  match 'close_notice' => 'candidacies#closeNotice', via: 'post'
+  match 'show_results' => 'candidacies#showResults', via: 'post'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

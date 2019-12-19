@@ -38,12 +38,16 @@
 
 <% if current_user %>
   <% if current_user.isAdmin %>
-    <%= link_to 'Encerrar candidaturas', close_notice_url %>
+      <% if not @notice.encerrado %>
+        <%= button_to 'Encerrar candidaturas', action: "closeNotice" %>
+      <% end %>
   <% end %>
 <% end %>
-
+<br>
 <% if current_user %>
   <% if current_user.isAdmin %>
-    <%= link_to 'Gerar resultados', show_results_url %>
+    <% if @notice.encerrado %>
+      <%= button_to 'Gerar resultados', action: "showResults" %>
+    <% end %>
   <% end %>
 <% end %>

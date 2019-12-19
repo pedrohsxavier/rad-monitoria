@@ -6,7 +6,11 @@ class Candidacy < ApplicationRecord
   validates :cre, :nota, :subject, presence: true
 
   def calcMedia
-    self.media = ((self.cre * 3) + (self.nota*7))/10
+    self.media = ((self.cre * 3) + (self.nota * 7)) / 10
+  end
+
+  def resultAluno
+
   end
 
 end

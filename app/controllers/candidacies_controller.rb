@@ -9,6 +9,11 @@ class CandidaciesController < ApplicationController
 
   # GET /results
   def results
+    if (!Notice.last.resultados_liberados)
+      respond_to do |format|
+        format.html { redirect_to candidacies_path, notice: 'Resultados ainda não foram liberados!' and return}
+      end
+    end
     @subjects = Subject.all
     @candidacies = Candidacy.where(notice_id = Notice.last.id.to_s)
   end
@@ -58,6 +63,19 @@ class CandidaciesController < ApplicationController
     end
     respond_to do |format|
       format.html { redirect_to candidacies_path, notice: 'Edital encerrado com sucesso!' and return}
+    end
+  end
+
+  # Show results
+  def showResults
+    if (current_user)
+      if (current_user.isAdmin)
+        if (Notice.last.encerrado)
+          notice = Notice.last
+          notice.resultados_liberados = true
+          notice.save
+        end
+      end
     end
   end
 

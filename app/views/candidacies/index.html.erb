@@ -36,4 +36,14 @@
   </tbody>
 </table>
 
-<%= link_to 'Encerrar candidaturas', close_notice_url %>
+<% if current_user %>
+  <% if current_user.isAdmin %>
+    <%= link_to 'Encerrar candidaturas', close_notice_url %>
+  <% end %>
+<% end %>
+
+<% if current_user %>
+  <% if current_user.isAdmin %>
+    <%= link_to 'Gerar resultados', show_results_url %>
+  <% end %>
+<% end %>

@@ -10,7 +10,7 @@ namespace :db do
     aluno_1.save
     ###
     aluno_2 = User.find(2)
-    aluno_2.nome = "William Abdon"
+    aluno_2.nome = "Willian Abdon"
     aluno_2.save
     ###
     aluno_3 = User.find(3)

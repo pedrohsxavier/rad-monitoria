@@ -33,6 +33,17 @@ namespace :db do
     luiz.nome = "Luiz Carlos"
     luiz.email = "luiz@gmail.com"
     luiz.save
+    ###
+    gustavo = Teacher.new
+    gustavo.nome = "Gustavo Wagner"
+    gustavo.email = "gustavo@gmail.com"
+    gustavo.save
+    ###
+    paulo_costa = Teacher.new
+    paulo_costa.nome = "Paulo Costa"
+    paulo_costa.email = "paulo@email.com"
+    paulo_costa.save
+
 
     # DISCIPLINA
     ape = Subject.new
@@ -48,6 +59,21 @@ namespace :db do
     lm.periodo = 1
     lm.teacher = luiz
     lm.save
+    ###
+    dist = Subject.new
+    dist.nome = "Programação Distribuída"
+    dist.sigla = "Prog. Dist."
+    dist.periodo = 6
+    dist.teacher = gustavo
+    dist.save
+    ###
+    bi = Subject.new
+    bi.nome = "Inteligência Empresarial"
+    bi.sigla = "BI"
+    bi.periodo = 6
+    bi.teacher = paulo_costa
+    bi.save
+
 
     # CANDIDATURA
     candidatura_1 = Candidacy.new
@@ -57,7 +83,7 @@ namespace :db do
     candidatura_1.user = User.find(1)
     candidatura_1.notice = edital
     candidatura_1.subject = ape
-    candidatura_1.resultado = 'Aprovado'
+    candidatura_1.resultado = 'Classificado'
     candidatura_1.save
     ###
     candidatura_2 = Candidacy.new
@@ -76,7 +102,7 @@ namespace :db do
     candidatura_3.user = User.find(3)
     candidatura_3.notice = edital
     candidatura_3.subject = lm
-    candidatura_3.resultado = 'Aprovado'
+    candidatura_3.resultado = 'Classificado'
     candidatura_3.save
   end
 

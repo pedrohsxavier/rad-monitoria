@@ -47,6 +47,20 @@ class CandidaciesController < ApplicationController
     @subjects = Subject.all
   end
 
+  # Close Notice 
+  def closeNotice
+    if (current_user)
+      if (current_user.isAdmin)
+        notice = Notice.last
+        notice.encerrado = true
+        notice.save
+      end
+    end
+    respond_to do |format|
+      format.html { redirect_to candidacies_path, notice: 'Edital encerrado com sucesso!' and return}
+    end
+  end
+
   # POST /candidacies
   # POST /candidacies.json
   def create
@@ -116,14 +130,6 @@ class CandidaciesController < ApplicationController
     end
     
     
-    # Close Notice 
-    def closeNotice
-      if (current_user)
-        if (current_user.isAdmin)
-          notice.encerrado = true
-        end
-      end
-    end
 
     # Find the better
     def set_first

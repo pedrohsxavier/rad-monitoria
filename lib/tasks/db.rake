@@ -83,7 +83,7 @@ namespace :db do
     candidatura_1.user = User.find(1)
     candidatura_1.notice = edital
     candidatura_1.subject = ape
-    candidatura_1.resultado = 'Classificado'
+    # candidatura_1.resultado = 'Classificado'
     candidatura_1.save
     ###
     candidatura_2 = Candidacy.new
@@ -102,7 +102,7 @@ namespace :db do
     candidatura_3.user = User.find(3)
     candidatura_3.notice = edital
     candidatura_3.subject = bi
-    candidatura_3.resultado = 'Classificado'
+    # candidatura_3.resultado = 'Classificado'
     candidatura_3.save
   end
 

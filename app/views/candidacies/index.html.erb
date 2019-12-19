@@ -35,3 +35,19 @@
     <% end %>
   </tbody>
 </table>
+
+<% if current_user %>
+  <% if current_user.isAdmin %>
+      <% if not @notice.encerrado %>
+        <%= button_to 'Encerrar candidaturas', action: "closeNotice" %>
+      <% end %>
+  <% end %>
+<% end %>
+<br>
+<% if current_user %>
+  <% if current_user.isAdmin %>
+    <% if @notice.encerrado %>
+      <%= button_to 'Gerar resultados', action: "showResults" %>
+    <% end %>
+  <% end %>
+<% end %>

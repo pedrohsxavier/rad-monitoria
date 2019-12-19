@@ -32,7 +32,7 @@ class CandidaciesController < ApplicationController
       end
     end
 
-    if (candidacy.notice.encerrado)
+    if (Notice.last.encerrado)
       respond_to do |format|
         format.html { redirect_to candidacies_path, notice: 'Candidaturas encerradas! Aguarde para conferir o resultado final.' and return}
       end

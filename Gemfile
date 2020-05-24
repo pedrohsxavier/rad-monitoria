@@ -5,8 +5,6 @@ ruby '2.6.4'
 
 # Bootstrap
 gem 'bootstrap'
-# Jquery
-gem 'jquery-rails'
 # Devise
 gem 'devise'
 # Cocoon
